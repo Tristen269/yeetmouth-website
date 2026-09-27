@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yeet Mouth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EC;
+    --surface: #FFFFFF;
+    --surface-line: #E4DDCC;
+    --blue: #4C8FD1;
+    --green: #5C7A4E;
+    --rust: #B36A3E;
+    --text: #221D14;
+    --muted: #7A7160;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px 64px;
+  }
+
+  main {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 28px 20px 26px;
+    margin-bottom: 28px;
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 130px;
+    height: 130px;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        var(--blue) 0px, var(--blue) 8px,
+        transparent 8px, transparent 18px
+      ),
+      repeating-linear-gradient(
+        135deg,
+        var(--green) 0px, var(--green) 6px,
+        transparent 6px, transparent 20px
+      );
+    opacity: 0.9;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+  }
+
+  .wordmark {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 13vw, 3.4rem);
+    line-height: 0.92;
+    letter-spacing: 0.5px;
+    margin: 0 0 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .wordmark span {
+    display: block;
+    color: var(--blue);
+  }
+
+  .tagline {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: var(--muted);
+    max-width: 34ch;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tagline strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* Section labels */
+  .section-label {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 26px 4px 10px;
+    font-weight: 500;
+  }
+
+  .section-label:first-of-type { margin-top: 0; }
+
+  /* Link cards */
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    border-left: 3px solid var(--tag-color, var(--blue));
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--text);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .link-card:active {
+    transform: scale(0.98);
+  }
+
+  @media (hover: hover) {
+    .link-card:hover {
+      background: #232939;
+    }
+  }
+
+  .link-card .tag {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--tag-color, var(--blue));
+    width: 52px;
+    white-space: nowrap;
+  }
+
+  .link-card .info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .link-card .title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin: 0 0 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .link-card .desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .link-card .arrow {
+    flex-shrink: 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  .tag--tech { --tag-color: var(--blue); }
+  .tag--stunts { --tag-color: var(--green); }
+  .tag--extra { --tag-color: var(--rust); }
+
+  .link-card--disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .link-card--disabled .tag {
+    color: var(--muted);
+  }
+
+  @media (hover: hover) {
+    .link-card--disabled:hover { background: var(--surface); }
+  }
+
+  /* Socials */
+  .socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .social-btn {
+    flex: 1;
+    text-align: center;
+    padding: 13px 10px;
+    background: transparent;
+    border: 1px solid var(--surface-line);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  .social-btn:active { transform: scale(0.98); }
+
+  @media (hover: hover) {
+    .social-btn:hover { border-color: var(--muted); }
+  }
+
+  footer {
+    text-align: center;
+    color: var(--surface-line);
+    font-size: 0.75rem;
+    margin-top: 34px;
+  }
+
+  @media (min-width: 500px) {
+    body { padding-top: 72px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="hero">
+    <h1 class="wordmark">YEET<span>MOUTH</span></h1>
+    <p class="tagline"><strong>Cybersecurity junior, recovering overthinker.</strong> I spent a long time just thinking about doing things. This site, and everything on it, this is me a doing instead.</p>
+  </div>
+
+  <p class="section-label">Desk & tech</p>
+  <ul class="links">
+    <li>
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <span class="tag tag--tech">TECH</span>
+        <span class="info">
+          <p class="title">The keyboard on my desk</p>
+          <p class="desc">Found it at Goodwill, this is the closest match</p>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+  </ul>
+
+  <p class="section-label">Collectibles</p>
+  <ul class="links">
+    <li>
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <span class="tag tag--extra">MARVEL</span>
+        <span class="info">
+          <p class="title">Spider-Man stuff I actually own</p>
+          <p class="desc">No shame</p>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+    <li>
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <span class="tag tag--extra">MANGA</span>
+        <span class="info">
+          <p class="title">One Piece pieces</p>
+          <p class="desc">Figures, volumes, the usual</p>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+  </ul>
+
+  <p class="section-label">Learning to fall</p>
+  <ul class="links">
+    <li>
+      <div class="link-card link-card--disabled">
+        <span class="tag tag--stunts">STUNT</span>
+        <span class="info">
+          <p class="title">Training gear</p>
+          <p class="desc">Coming soon — once I actually own any</p>
+        </span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="socials">
+    <a class="social-btn" href="#" target="_blank" rel="noopener">TikTok</a>
+    <a class="social-btn" href="#" target="_blank" rel="noopener">Instagram</a>
+  </div>
+
+  <footer>yeetmouth.com</footer>
+
+</main>
+</body>
+</html>
