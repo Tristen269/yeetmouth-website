@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech &amp; Desk - Yeet Mouth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EC;
+    --surface: #FFFFFF;
+    --surface-line: #E4DDCC;
+    --blue: #4C8FD1;
+    --green: #5C7A4E;
+    --rust: #B36A3E;
+    --text: #221D14;
+    --muted: #7A7160;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 32px 20px 64px;
+  }
+
+  main {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  @media (hover: hover) {
+    .back-link:hover { color: var(--text); }
+  }
+
+  /* Page header */
+  .page-header {
+    padding: 22px 20px;
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    border-left: 3px solid var(--blue);
+  }
+
+  .page-header .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+    margin: 0 0 6px;
+  }
+
+  .page-header h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 1.9rem;
+    letter-spacing: 0.3px;
+    margin: 0 0 8px;
+  }
+
+  .page-header p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+    max-width: 36ch;
+  }
+
+  /* Item grid */
+  .items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .item-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    text-decoration: none;
+    color: var(--text);
+    overflow: hidden;
+    transition: transform 0.15s ease;
+  }
+
+  .item-card:active { transform: scale(0.98); }
+
+  @media (hover: hover) {
+    .item-card:hover { border-color: var(--blue); }
+  }
+
+  .item-photo {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: var(--surface-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  .item-body {
+    padding: 14px 16px;
+  }
+
+  .item-body .title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  .item-body .desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
+
+  .item-body .cta {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .disclosure {
+   font-size: 0.8rem;
+   opacity: 0.6;
+   text-align: center;
+   margin-top: 2rem;
+  }
+
+  .item-photo img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; }
+
+</style>
+</head>
+<body>
+<main>
+
+  <a class="back-link" href="index.html">&larr; Back to all links</a>
+
+  <div class="page-header">
+    <p class="eyebrow">DESK &amp; TECH</p>
+    <h1>What's on my desk</h1>
+    <p>The actual gear I use day to day, including the Goodwill keyboard that started it all.</p>
+  </div>
+
+  <ul class="items">
+    <li>
+      <a class="item-card" href="https://amzn.to/3Vjw5bB" target="_blank" rel="sponsored noopener">
+        <div class="item-photo"><img src="image here" alt="Kisnt KN104 keyboard"></div>
+        <div class="item-body">
+          <p class="title">Kisnt KN104 Wireless Keyboard</p>
+          <p class="desc">Found the original at Goodwill, this is the closest match I could find online.</p>
+          <p class="cta">View on Amazon &rarr;</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+
+</main>
+</body>
+</html>
+</body>
+</html>

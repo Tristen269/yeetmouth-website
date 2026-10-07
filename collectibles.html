@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collectibles — Yeet Mouth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EC;
+    --surface: #FFFFFF;
+    --surface-line: #E4DDCC;
+    --blue: #4C8FD1;
+    --green: #5C7A4E;
+    --rust: #B36A3E;
+    --text: #221D14;
+    --muted: #7A7160;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 32px 20px 64px;
+  }
+
+  main {
+    width: 100%;
+    max-width: 460px;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  @media (hover: hover) {
+    .back:hover { color: var(--text); }
+  }
+
+  h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 10vw, 2.6rem);
+    letter-spacing: 0.5px;
+    margin: 0 0 6px;
+    color: var(--rust);
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 28px;
+  }
+
+  .items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .item-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    text-decoration: none;
+    color: var(--text);
+    overflow: hidden;
+  }
+
+  .item-card .photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--surface-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    overflow: hidden;
+  }
+
+  .item-card .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .item-card .body {
+    padding: 14px 16px;
+    border-left: 3px solid var(--rust);
+  }
+
+  .item-card .title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  .item-card .desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .item-card:active { transform: scale(0.99); }
+
+  @media (hover: hover) {
+    .item-card:hover .body { background: #FBF9F3; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <a class="back" href="index.html">← Back</a>
+
+  <h1>Collectibles</h1>
+  <p class="subtitle">Spider-Man and One Piece stuff I actually own.</p>
+
+  <ul class="items">
+    <li>
+      <a class="item-card" href="#" target="_blank" rel="noopener">
+        <div class="photo">photo goes here</div>
+        <div class="body">
+          <p class="title">Spider-Man figure</p>
+          <p class="desc">Swap this for your real item + affiliate link</p>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="item-card" href="#" target="_blank" rel="noopener">
+        <div class="photo">photo goes here</div>
+        <div class="body">
+          <p class="title">One Piece figure / volume</p>
+          <p class="desc">Swap this for your real item + affiliate link</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</main>
+</body>
+</html>
