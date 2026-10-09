@@ -9,7 +9,7 @@
 const CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQPB8gZjGAWBz1dwvkJt3HLa59JrQNeVriPd3ghcXL_lmh1zMlcG1D2dYnDCt8U1yepo--RX0m0siO8/pub?gid=1166172370&single=true&output=csv";
 
-const ALLOWED_HOSTS = ["amzn.to", "www.amazon.com"];
+const ALLOWED_HOSTS = ["amzn.to", "www.amazon.com", "link.amazon"];
 const IMAGE_FOLDER = "/images/";
 const IMAGE_NAME_PATTERN = /^[A-Za-z0-9_-]+\.(png|jpg|jpeg|webp)$/i;
 
@@ -85,8 +85,13 @@ function isSafeImageName(name) {
 
 // ---------- Rendering ----------
 function buildCard(product) {
-  const card = document.createElement("article");
+  const li = document.createElement("li");
+
+  const card = document.createElement("a");
   card.className = "item-card";
+  card.href = product.affiliate_url;
+  card.target = "_blank";
+  card.rel = "sponsored noopener";
 
   const photo = document.createElement("div");
   photo.className = "item-photo";
@@ -102,27 +107,28 @@ function buildCard(product) {
   const body = document.createElement("div");
   body.className = "item-body";
 
-  const title = document.createElement("h3");
+  const title = document.createElement("p");
+  title.className = "title";
   title.textContent = product.title;
 
   const desc = document.createElement("p");
+  desc.className = "desc";
   desc.textContent = product.description;
 
-  const link = document.createElement("a");
-  link.href = product.affiliate_url;
-  link.rel = "sponsored noopener";
-  link.target = "_blank";
-  link.textContent = "View on Amazon";
+  const cta = document.createElement("p");
+  cta.className = "cta";
+  cta.textContent = "View on Amazon \u2192";
 
-  body.append(title, desc, link);
+  body.append(title, desc, cta);
   card.append(photo, body);
-  return card;
+  li.appendChild(card);
+  return li;
 }
 
 function showMessage(container, message) {
-  const p = document.createElement("p");
-  p.textContent = message;
-  container.replaceChildren(p);
+  const li = document.createElement("li");
+  li.textContent = message;
+  container.replaceChildren(li);
 }
 
 // ---------- Main ----------
