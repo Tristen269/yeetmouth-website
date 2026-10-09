@@ -89,7 +89,7 @@
     overflow: hidden;
   }
 
-  .item-card .photo {
+  .item-card .item-photo {
     width: 100%;
     aspect-ratio: 4 / 3;
     background: var(--surface-line);
@@ -101,13 +101,14 @@
     overflow: hidden;
   }
 
-  .item-card .photo img {
+  .item-card .item-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
-  .item-card .body {
+  .item-card .item-body {
     padding: 14px 16px;
     border-left: 3px solid var(--rust);
   }
@@ -121,13 +122,28 @@
   .item-card .desc {
     font-size: 0.85rem;
     color: var(--muted);
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
+
+  .item-card .cta {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--rust);
     margin: 0;
   }
 
   .item-card:active { transform: scale(0.99); }
 
   @media (hover: hover) {
-    .item-card:hover .body { background: #FBF9F3; }
+    .item-card:hover .item-body { background: #FBF9F3; }
+  }
+
+  .disclosure {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    text-align: center;
+    margin-top: 2rem;
   }
 </style>
 </head>
@@ -139,27 +155,11 @@
   <h1>Collectibles</h1>
   <p class="subtitle">Spider-Man and One Piece stuff I actually own.</p>
 
-  <ul class="items">
-    <li>
-      <a class="item-card" href="#" target="_blank" rel="noopener">
-        <div class="photo">photo goes here</div>
-        <div class="body">
-          <p class="title">Spider-Man figure</p>
-          <p class="desc">Swap this for your real item + affiliate link</p>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a class="item-card" href="#" target="_blank" rel="noopener">
-        <div class="photo">photo goes here</div>
-        <div class="body">
-          <p class="title">One Piece figure / volume</p>
-          <p class="desc">Swap this for your real item + affiliate link</p>
-        </div>
-      </a>
-    </li>
-  </ul>
+  <ul class="items" id="product-list" data-category="2"></ul>
+
+  <p class="disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
 
 </main>
+<script src="products.js"></script>
 </body>
 </html>
